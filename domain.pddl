@@ -9,68 +9,68 @@
     )
 
     (:predicates
-    (Adjacent ?a1 - area ?a2 - area)       ;Wether area a1 and a2 are adjacent and not seperated
-    (Has_Food ?p - plate)              ;Wether plate p contains food 
-    (Served ?c - costumer)             ;Wether costumer c has been served
-    (Holding ?p - plate)            ;Wether Lucki is holding plate p
-    (Buffet_Location ?a - area)            ;Wether the buffet is in area a
-    (At ?a - area)                  ;Wether the robot is in area a
-    (Plate_At ?p - plate ?a - area)     ;Wether the plate p is in area a
-    (Costumer_At ?c - costumer ?a - area)  ;Wether the costumer c is in area a 
+    (adjacent ?a1 - area ?a2 - area)       ;Wether area a1 and a2 are adjacent and not seperated
+    (has_food ?p - plate)              ;Wether plate p contains food 
+    (served ?c - costumer)             ;Wether costumer c has been served
+    (holding ?p - plate)            ;Wether Lucki is holding plate p
+    (buffet_location ?a - area)            ;Wether the buffet is in area a
+    (robot_at ?a - area)                  ;Wether the robot is in area a
+    (plate_at ?p - plate ?a - area)     ;Wether the plate p is in area a
+    (customer_at ?c - costumer ?a - area)  ;Wether the costumer c is in area a 
     )
 
 
     ; ------ ACTIONS ------
-    (:action Move ;This action moves the robot from a1 to a2 
+    (:action move ;This action moves the robot from a1 to a2 
     :parameters (?a1 - area ?a2 - area)
     :precondition (and
-        (At ?a1)
-        (or (Adjacent ?a1 ?a2) (Adjacent ?a2 ?a1))
+        (robot_at ?a1)
+        (or (adjacent ?a1 ?a2) (adjacent ?a2 ?a1))
     )
     :effect (and
-        (not (At ?a1))
-        (At ?a2)
+        (not (robot_at ?a1))
+        (robot_at ?a2)
     )
     )
 
-    (:action Pick_Up ;This action lets the robot pick up the plate p in the area a 
+    (:action pick_up ;This action lets the robot pick up the plate p in the area a 
         :parameters (?p - plate ?a - area)
         :precondition (and
-            (At ?a)
-            (Plate_At ?p ?a)
-            (not (Holding ?p))
+            (robot_at ?a)
+            (plate_at ?p ?a)
+            (not (holding ?p))
         )
         :effect (and
-            (Holding ?p)
-            (not (Plate_At ?p ?a))
+            (holding ?p)
+            (not (plate_at ?p ?a))
         )
     )
 
-    (:action Present ;This action lets the robot present the plate p to the costumer c in area a
+    (:action present ;This action lets the robot present the plate p to the costumer c in area a
         :parameters (?p - plate ?c - costumer ?a - area)
         :precondition (and
-            (Holding ?p)
-            (Has_Food ?p)
-            (At ?a)
-            (Costumer_At ?c ?a)
-            (not (Served ?c))
+            (holding ?p)
+            (has_food ?p)
+            (robot_at ?a)
+            (customer_at ?c ?a)
+            (not (served ?c))
         )
         :effect (and
-            (Served ?c)
-            (not (Holding ?p))
+            (served ?c)
+            (not (holding ?p))
         )
     )
 
-    (:action Fill ;This action lets the robot fill the plate p in the area a
+    (:action fill ;This action lets the robot fill the plate p in the area a
         :parameters (?p - plate ?a - area)
         :precondition (and
-            (Holding ?p)
+            (holding ?p)
             (not (Has_Food ?p))
-            (At ?a)
-            (Buffet_Location ?a)
+            (robot_at ?a)
+            (buffet_location ?a)
         )
         :effect (and
-            (Has_Food ?p)
+            (has_food ?p)
         )
     )
 )
