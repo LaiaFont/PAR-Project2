@@ -1,9 +1,11 @@
 (define (problem harder_problem)
-    (:domain robot_waiter)
+    (:domain robot_waiter_2)
     (:objects
-    c1 c2 c3 c4 - costumer
-    p1 p2 p3 p4 - plate
-    bta aua pua pma ama pla ala - area
+        c1 c2 c3 c4 - costumer
+        p1 p2 p3 p4 - plate
+        bta aua pua pma ama pla ala - area
+        buffet - buffet
+        robot - robot
     )
 
     (:init
@@ -14,16 +16,16 @@
     (adjacent pua pma) (adjacent pma pua)
     (adjacent pma pla) (adjacent pla pma)
     (adjacent pla ala) (adjacent ala pla)
-    (buffet_location bta)
-    (customer_at c1 pma) (customer_at c2 pua) (customer_at c3 ama) (customer_at c4 ala)
-    (robot_at bta)
-    (plate_at p1 bta) (plate_at p2 bta) (plate_at p3 bta) (plate_at p4 bta)
+    (at buffet bta)
+    (at c1 pma) (at c2 pua) (at c3 ama) (at c4 ala)
+    (at robot bta)
+    (at p1 bta) (at p2 bta) (at p3 bta) (at p4 bta)
     )
 
     (:goal
         (and
             (served c1) (served c2) (served c3) (served c4)
-            (robot_at bta)
+            (at robot bta)
         )
     )
 )
