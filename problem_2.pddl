@@ -23,6 +23,7 @@
 
     (:goal
         (and
+            (plate_at p1 pma) (plate_at p2 pua) (plate_at p3 ama) (plate_at p4 ala)
             (served c1) (served c2) (served c3) (served c4)
             (robot_at bta)
         )

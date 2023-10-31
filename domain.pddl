@@ -16,7 +16,7 @@
     (buffet_location ?a - area)            ;Wether the buffet is in area a
     (robot_at ?a - area)                  ;Wether the robot is in area a
     (plate_at ?p - plate ?a - area)     ;Wether the plate p is in area a
-    (customer_at ?c - costumer ?a - area)  ;Wether the costumer c is in area a 
+    (customer_at ?c - costumer ?a - area)  ;Wether the costumer c is in area a
     )
 
 
