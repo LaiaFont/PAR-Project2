@@ -13,6 +13,7 @@
     (has_food ?p - plate)              ;Wether plate p contains food 
     (served ?c - costumer)             ;Wether costumer c has been served
     (holding ?p - plate)            ;Wether Lucki is holding plate p
+    (hands_full)                        ;Whether Lucki is holding any plate
     (buffet_location ?a - area)            ;Wether the buffet is in area a
     (robot_at ?a - area)                  ;Wether the robot is in area a
     (plate_at ?p - plate ?a - area)     ;Wether the plate p is in area a
@@ -38,10 +39,11 @@
         :precondition (and
             (robot_at ?a)
             (plate_at ?p ?a)
-            (not (holding ?p))
+            (not (hands_full))
         )
         :effect (and
             (holding ?p)
+            (hands_full)
             (not (plate_at ?p ?a))
         )
     )
@@ -58,6 +60,7 @@
         :effect (and
             (served ?c)
             (not (holding ?p))
+            (not (hands_full))
         )
     )
 
