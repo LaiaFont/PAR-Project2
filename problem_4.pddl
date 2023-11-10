@@ -38,7 +38,7 @@
     (:goal
         (and
             (served c1) (served c2) (served c3) (served c4)
-            (at lucki bta)
+            (at lucki ama)
         )
     )
 )

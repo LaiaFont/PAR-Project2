@@ -63,7 +63,7 @@
         :parameters (?p - plate ?a - area ?r - object ?b -object)
         :precondition (and
             (holding ?p)
-            (not (Has_Food ?p))
+            (not (has_food ?p))
             (at ?r ?a)
             (at ?b ?a)
         )
