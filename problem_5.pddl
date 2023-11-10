@@ -18,6 +18,8 @@
     (adjacent pma pla) 
     (adjacent pla ala) 
     (adjacent ala pla) 
+    (adjacent pma ama)
+    (adjacent ama pma)
     (buffet_location bta)
     (customer_at c1 pma) (customer_at c2 pua) (customer_at c3 ama) (customer_at c4 ala)
     (robot_at bta)
