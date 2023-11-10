@@ -1,10 +1,11 @@
 (define (problem harder_problem)
-    (:domain robot_waiter_2)
+    (:domain robot_waiter_2
+    )
     (:objects
         c1 c2 c3 c4 - costumer
         p1 p2 p3 p4 - plate
         bta aua pua pma ama pla ala - area
-        buffet - buffet
+        b - buffet
         lucki - robot
     )
     (:init
@@ -24,7 +25,7 @@
         (adjacent ala pla)
         (adjacent pma ama)
         (adjacent ama pma) 
-        (at buffet bta)
+        (at b bta)
         (at c1 pma)
         (at c2 pua)
         (at c3 ama)

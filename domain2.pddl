@@ -3,11 +3,8 @@
     (:requirements :strips :typing :disjunctive-preconditions :negative-preconditions)
 
     (:types
-        plate - object
-        area - position
-        costumer - object
-        buffet - object
-        robot - object
+        entity area - object
+        robot plate buffet costumer - entity
     )
 
     (:predicates
@@ -16,7 +13,7 @@
         (served ?c - costumer) ;Wether costumer c has been served
         (holding ?p - plate) ;Wether Lucki is holding plate p
         (hands_full)                        ;Whether Lucki is holding any plate 
-        (at ?o - object ?a -area) ;Wether the object o is at area a 
+        (at ?o - entity ?a - area) ;Wether the object o is at area a 
     )
 
     ; ------ ACTIONS ------
