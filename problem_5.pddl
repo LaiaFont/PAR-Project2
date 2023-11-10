@@ -1,10 +1,12 @@
-(define (problem more_walls)
-    (:domain robot_waiter
+(define (problem more_robots)
+    (:domain robot_waiter_2
     )
     (:objects
-    c1 c2 c3 c4 - costumer
-    p1 p2 p3 p4 - plate
-    bta aua pua pma ama pla ala - area
+        c1 c2 c3 c4 c5 c6 - costumer
+        p1 p2 p3 p4 p5 p6 - plate
+        bta aua pua pma ama pla ala - area
+        buffet - buffet
+        r1 r2 r3 - robot
     )
 
     (:init
@@ -20,16 +22,28 @@
     (adjacent ala pla) 
     (adjacent pma ama)
     (adjacent ama pma)
-    (buffet_location bta)
-    (customer_at c1 pma) (customer_at c2 pua) (customer_at c3 ama) (customer_at c4 ala)
-    (robot_at bta)
-    (plate_at p1 bta) (plate_at p2 bta) (plate_at p3 bta) (plate_at p4 bta)
+    (at buffet bta)
+    (at c1 pma)
+    (at c2 pua)
+    (at c3 ama)
+    (at c4 ala)
+    (at c5 pla)
+    (at c6 aua)
+    (at r1 ala)
+    (at r2 aua)
+    (at r3 bta)
+    (at p1 bta)
+    (at p2 bta)
+    (at p3 bta)
+    (at p4 bta)
+    (at p5 bta)
+    (at p6 bta)
     )
 
     (:goal
         (and
             (served c1) (served c2) (served c3) (served c4)
-            (robot_at bta)
+            (at r1 bta) (at r2 bta) (at r3 bta)
         )
     )
 )
