@@ -15,12 +15,13 @@
         (has_food ?p - plate) ;Wether plate p contains food 
         (served ?c - costumer) ;Wether costumer c has been served
         (holding ?p - plate) ;Wether Lucki is holding plate p
-        (at ?what - object ?a -area) ;Wether what or who is at area a 
+        (hands_full)                        ;Whether Lucki is holding any plate 
+        (at ?o - object ?a -area) ;Wether the object o is at area a 
     )
 
     ; ------ ACTIONS ------
     (:action move ;This action moves the robot from a1 to a2 
-        :parameters (?a1 - area ?a2 - area ?r - object)
+        :parameters (?a1 - area ?a2 - area ?r - robot)
         :precondition (and
             (at ?r ?a1)
             (or (adjacent ?a1 ?a2) (adjacent ?a2 ?a1))
@@ -32,20 +33,21 @@
     )
 
     (:action pick_up ;This action lets the robot pick up the plate p in the area a 
-        :parameters (?p - plate ?a - area ?r -object)
+        :parameters (?p - plate ?a - area ?r -robot)
         :precondition (and
             (at ?r ?a)
             (at ?p ?a)
-            (not (holding ?p))
+            (not (hands_full))
         )
         :effect (and
             (holding ?p)
+            (hands_full)
             (not (at ?p ?a))
         )
     )
 
     (:action present ;This action lets the robot present the plate p to the costumer c in area a
-        :parameters (?p - plate ?c - costumer ?a - area ?r - object)
+        :parameters (?p - plate ?c - costumer ?a - area ?r - robot)
         :precondition (and
             (holding ?p)
             (has_food ?p)
@@ -56,11 +58,12 @@
         :effect (and
             (served ?c)
             (not (holding ?p))
+            (not (hands_full))
         )
     )
 
-    (:action fill ;This action lets the robot fill the plate p in the area a
-        :parameters (?p - plate ?a - area ?r - object ?b -object)
+    (:action fill ;This action lets the robot r fill the plate p in the area a at the buffet b
+        :parameters (?p - plate ?a - area ?r - robot ?b - buffet)
         :precondition (and
             (holding ?p)
             (not (has_food ?p))
