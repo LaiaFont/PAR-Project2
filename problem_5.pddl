@@ -1,5 +1,5 @@
 (define (problem more_robots)
-    (:domain robot_waiter_3
+    (:domain robot_waiter_2
     )
     (:objects
         c1 c2 c3 c4 c5 c6 - costumer
