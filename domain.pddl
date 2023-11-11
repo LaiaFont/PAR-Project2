@@ -68,7 +68,7 @@
         :parameters (?p - plate ?a - area)
         :precondition (and
             (holding ?p)
-            (not (Has_Food ?p))
+            (not (has_food ?p))
             (robot_at ?a)
             (buffet_location ?a)
         )

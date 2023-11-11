@@ -24,7 +24,7 @@
     (adjacent ala pla)
     (buffet_location bta)
     (customer_at c1 pma) (customer_at c2 pua) (customer_at c3 ama) (customer_at c4 ala) (customer_at c5 pla) (customer_at c6 aua)
-    (robot_at bta)
+    (robot_at ala)
     (plate_at p1 bta) (plate_at p2 bta) (plate_at p3 bta) (plate_at p4 bta) (plate_at p5 bta) (plate_at p6 bta) 
     )
 
