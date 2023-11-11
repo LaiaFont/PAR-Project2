@@ -23,8 +23,6 @@
         (adjacent pma pla) 
         (adjacent pla ala) 
         (adjacent ala pla)
-        (adjacent pma ama)
-        (adjacent ama pma) 
         (at b bta)
         (at c1 pma)
         (at c2 pua)
