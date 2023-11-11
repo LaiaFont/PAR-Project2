@@ -1,0 +1,15 @@
+;;!domain: robot_waiter
+;;!problem: basic_problem
+
+0.00100: (pick_up p bta)
+0.00200: (fill p bta)
+0.00300: (move bta aua)
+0.00400: (move aua pua)
+0.00500: (move pua pma)
+0.00600: (present p c pma)
+0.00700: (move pma pua)
+0.00800: (move pua aua)
+0.00900: (move aua bta)
+
+; Makespan: 0.009000000000000001
+; Metric: 0.009000000000000001
